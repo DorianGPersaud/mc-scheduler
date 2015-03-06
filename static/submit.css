@@ -1,0 +1,45 @@
+body {
+	font-family: sans-serif;
+}
+
+#combinations {
+	text-align: center;
+	margin-bottom: -2px;
+}
+
+#schedule-number {
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+#schedule {
+	width: 800px;
+	margin: auto;
+}
+
+#schedule > table {
+}
+
+#header td {
+	text-align: center;
+}
+
+.class-cell {
+	border: 1px solid black;
+}
+
+.class-cell > div {
+	text-align: center;
+	font-size: 12px;
+}
+
+.empty-cell {
+	height: 4px;
+	padding: 0px;
+}
+
+.time p {
+	margin-top: -10px;
+	margin-left: 16px;
+	text-align: right;
+}

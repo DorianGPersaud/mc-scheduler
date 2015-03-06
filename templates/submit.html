@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Schedules</title>
+		<link href="static/submit.css" rel="stylesheet" type="text/css">
+	</head>
+
+	<body>
+		<p id="combinations"><b>Combinations: {{ number }}</b></p>
+		<hr />
+	{% set counter = 0 %}
+	{% for schedule in schedules %}
+	{% set counter = counter + 1 %}
+	<div id="schedule-number">
+		<b>Schedule {{ counter }}</b>
+	</div>
+		<div id="schedule">
+			<table border="0">
+				<colgroup>
+					<col span="1" style="width: 5%;">
+					<col span="1" style="width: 19%;">
+					<col span="1" style="width: 19%;">
+					<col span="1" style="width: 19%;">
+					<col span="1" style="width: 19%;">
+					<col span="1" style="width: 19%;">
+				</colgroup>
+				<thead>
+					<tr id="header">
+						<td></td>
+						<td>Monday</td>
+						<td>Tuesday</td>
+						<td>Wednesday</td>
+						<td>Thursday</td>
+						<td>Friday</td>
+					</tr>
+				</thead>
+				<tbody>
+				{% for time in range(168) %}
+					<tr>
+				{% if time % 12 == 0 %}
+					{% set converted = time // 12 %}
+					{% if converted + 8 > 12 %}
+						<td class="time" style="vertical-align: top;" rowspan="12">
+							<p>{{converted - 4}}</p>
+						</td>
+					{% else %}
+						<td class="time" style="vertical-align: top;" rowspan="12">
+							<p>{{converted + 8}}</p>
+						</td>
+					{% endif %}
+				{% endif %}
+				{% for day in ['M', 'T', 'W', 'R', 'F'] %}
+					{% if schedule[day][time] == 0 %}
+						<td class="empty-cell"></td>
+					{% elif schedule[day][time] == 1 %}
+					{% else %}
+						<td class="class-cell" rowspan={{schedule[day][time]['days'][day]['span']}}>
+							<div>
+								{{ schedule[day][time].course }}-{{schedule[day][time].section}}<br />
+								{{ schedule[day][time].days[day].instructor }}<br />
+								{{ schedule[day][time].days[day].p_start }} - {{ schedule[day][time].days[day].p_end }}
+							</div>
+						</td>
+					{% endif %}
+				{% endfor %}
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		<hr />
+	{% endfor %}
+	</body>
+</html>
