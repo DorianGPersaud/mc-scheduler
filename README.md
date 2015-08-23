@@ -24,7 +24,7 @@ The schedule options are displayed to you visually, so you can save the one you 
 
 ##### Example:
 
-These are a list of classes that I needed to register for in the Fall 2015 Semester.
+These are a list of classes that I needed to register for in the Fall 2015 Semester:
 * EECE 303
 * EECE 305
 * EECE 307
