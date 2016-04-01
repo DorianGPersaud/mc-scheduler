@@ -9,7 +9,7 @@ with open('data/classes.json') as f:
 # 0 -> Subject (MATH)
 # 1 -> Course Number (185)
 def get_sections(class_data):
-    if isinstance(class_data, str) or isinstance(class_data, unicode):
+    if isinstance(class_data, str):
         class_data = class_data.split(' ')
 
     return classes[class_data[0]][class_data[1]]

@@ -8,8 +8,6 @@ When you input the classes you want to take next semester, the program will auto
 
 The schedule options are displayed to you visually, so you can save the one you want, print it, and show all your friends what classes you are taking right on the spot.
 
-(not compatible with Python 3)
-
 ##### Usage:
 
 1. Run app.py

@@ -12,7 +12,7 @@ def convert_time(time):
     hour = int(floor(time) / 100)
     result = (hour - 8) * 12
     result += (time - (hour * 100)) / 5
-    return result
+    return int(result)
 
 
 @app.route('/')
@@ -22,7 +22,8 @@ def index():
 
 @app.route('/submit')
 def submit():
-    args = request.query_string.split('&')
+    args = request.query_string.decode().split('&')
+    print(args)
     split_args = [arg.split('=')[1] for arg in args]
     classes = split_args[0].upper()
 
